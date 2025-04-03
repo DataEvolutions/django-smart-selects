@@ -104,6 +104,10 @@ def filterchain(
     )
     queryset = get_queryset(model_class, manager, limit_choices_to)
 
+    ###JC Code to ensure user session data
+    keywords['member'] = request.user
+    ###JC Code end
+
     results = do_filter(queryset, keywords)
 
     # Sort results if model doesn't include a default ordering.
